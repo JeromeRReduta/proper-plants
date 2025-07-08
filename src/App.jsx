@@ -10,7 +10,7 @@ function generatePlants() {
             name: plant.name,
             id: plant.id,
             image: plant.image,
-            quantity: 0 /**TODO: change to 0 when done testing */,
+            quantity: 0,
         })
     );
 }
@@ -28,8 +28,6 @@ export default function App() {
         );
     const addOne = (plants, id) => add(plants, id, 1);
     const removeOne = (plants, id) => add(plants, id, -1);
-
-    console.log("DATA IS", data);
     return (
         <>
             <h1 className="title">Proper Plants</h1>
