@@ -1,25 +1,45 @@
-import CartItemCard from "./components/cart-item-card/CartItemCard";
+import { useState } from "react";
+import Cart from "./components/cart/Cart";
 import PlantGrid from "./components/plant-grid/PlantGrid";
 import PLANTS from "./data";
 import createPlant from "./domain-data/plant";
 
-export default function App() {
-    const data = Array.from(PLANTS, (plant) =>
+function generatePlants() {
+    return Array.from(PLANTS, (plant) =>
         createPlant({
             name: plant.name,
             id: plant.id,
             image: plant.image,
-            quantity: 0,
+            quantity: 0 /**TODO: change to 0 when done testing */,
         })
     );
+}
 
+export default function App() {
+    const [data, setData] = useState(generatePlants());
+    const add = (plants, id, num) =>
+        setData(
+            plants.map((plant) => {
+                if (plant.id === id) {
+                    plant.quantity += num;
+                }
+                return plant;
+            })
+        );
+    const addOne = (plants, id) => add(plants, id, 1);
+    const removeOne = (plants, id) => add(plants, id, -1);
+
+    console.log("DATA IS", data);
     return (
         <>
             <h1 className="title">Proper Plants</h1>
-            <PlantGrid />
-            <CartItemCard plant={data[0]} />
-            <CartItemCard plant={data[1]} />
-            <CartItemCard plant={data[data.length - 1]} />
+            <PlantGrid plants={data} addOne={addOne} />
+            <Cart
+                plants={data}
+                setData={setData}
+                addOne={addOne}
+                removeOne={removeOne}
+            />
         </>
     );
 }

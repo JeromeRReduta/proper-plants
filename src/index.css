@@ -1,9 +1,9 @@
 #root {
     display: grid;
     grid-template-areas:
-        "title    ."
-        "grid     ."
-        "grid     .";
+        "title    title"
+        "grid     cart"
+        "grid     cart";
     grid-template-columns: 80fr 20fr;
 }
 
