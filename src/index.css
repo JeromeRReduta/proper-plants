@@ -1,0 +1,20 @@
+#root {
+    display: grid;
+    grid-template-areas:
+        "title    title"
+        "grid     cart"
+        "grid     cart";
+    grid-template-columns: 80fr 20fr;
+}
+
+#root {
+    font-size: 2rem;
+}
+
+.title {
+    grid-area: title;
+}
+
+.plant-grid {
+    grid-area: grid;
+}
