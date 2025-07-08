@@ -1,0 +1,26 @@
+.item-display {
+    display: grid;
+    grid-template-areas:
+        "img      name        name"
+        "minus    quantity    plus";
+}
+
+.item-img {
+    grid-area: img;
+}
+
+.item-name {
+    grid-area: name;
+}
+
+.minus {
+    grid-area: minus;
+}
+
+.quantity {
+    grid-area: quantity;
+}
+
+.plus {
+    grid-area: plus;
+}
