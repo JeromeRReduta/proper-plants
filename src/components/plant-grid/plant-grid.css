@@ -1,0 +1,12 @@
+:root {
+    --side-length: 25vh;
+}
+
+.plant-grid {
+    display: grid;
+    grid-auto-rows: var(--side-length);
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(calc(0.5 * var(--side-length)), 1fr)
+    );
+}
